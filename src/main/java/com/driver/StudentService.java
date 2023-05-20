@@ -19,14 +19,22 @@ public class StudentService {
     }
     public String addStudentTeacherPair(String student , String teacher) throws RuntimeException{
         List<Teacher> directors = dao.getAllTeachers();
+        List<Student> students = dao.getAllStudents();
         Teacher ans = null;
+        Student ans2 = null;
         for(Teacher dir : directors){
             if(dir.getName().equals(teacher)){
                 ans = dir;
                 break;
             }
         }
-        if(Objects.isNull(ans))throw new RuntimeException("director not found");
+        for(Student dir : students){
+            if(dir.getName().equals(teacher)){
+                ans2 = dir;
+                break;
+            }
+        }
+        if(Objects.isNull(ans) || Objects.isNull(ans2))throw new RuntimeException("entities are not found");
         dao.addStudentTeacherPair(student,ans);
         return "pair added successfully";
     }
