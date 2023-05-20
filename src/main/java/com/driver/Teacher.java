@@ -1,5 +1,9 @@
 package com.driver;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+
+
+
 public class Teacher {
 
     private String name;
@@ -11,4 +15,23 @@ public class Teacher {
     public Teacher() {
 
     }
+
+    public Teacher(String name, int numberOfStudents, int age) {
+        this.name = name;
+        this.numberOfStudents = numberOfStudents;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getNumberOfStudents() {
+        return numberOfStudents;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
 }
