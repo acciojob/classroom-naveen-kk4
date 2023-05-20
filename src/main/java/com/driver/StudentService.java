@@ -29,7 +29,7 @@ public class StudentService {
             }
         }
         for(Student dir : students){
-            if(dir.getName().equals(teacher)){
+            if(dir.getName().equals(student)){
                 ans2 = dir;
                 break;
             }
