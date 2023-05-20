@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 @Service
@@ -102,9 +103,15 @@ public class StudentService {
 
     }
     public void deleteAllTeachers(){
-        List<String> students1 = dao.getAllStudents2();
+      Map<Teacher,List<String>> map = dao.getAllStudents2();
+        List<String> list = new ArrayList<>();
+        for(Teacher tir : map.keySet()){
+            List<String> ans = map.get(tir);
+            for(String temp:ans)list.add(temp);
+
+        }
         List<Student> students2 = dao.getAllStudents();
-        this.deleteTeacherStudents(students1,students2);
+        this.deleteTeacherStudents(list,students2);
         dao.deleteTeacher2();
 
     }

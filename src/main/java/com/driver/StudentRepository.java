@@ -47,14 +47,8 @@ public class StudentRepository {
     public void setStudents(List<Student> students){
         this.students = students;
     }
-    public List<String> getAllStudents2(){
-        List<String> list = new ArrayList<>();
-        for(Teacher tir : map.keySet()){
-            List<String> ans = map.get(tir);
-            for(String temp:ans)list.add(temp);
-
-        }
-        return list;
+    public Map<Teacher, List<String>> getAllStudents2(){
+      return new HashMap<>(map);
     }
     public void deleteTeacher2(){
         teachers.clear();
