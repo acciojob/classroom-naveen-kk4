@@ -1,8 +1,9 @@
 package com.driver;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import lombok.Setter;
 
-
+@Setter
 
 public class Teacher {
 

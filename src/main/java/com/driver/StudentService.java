@@ -37,6 +37,7 @@ public class StudentService {
         }
         if(Objects.isNull(ans) || Objects.isNull(ans2))throw new RuntimeException("entities are not found");
         dao.addStudentTeacherPair(student,ans);
+        ans.setNumberOfStudents(ans.getNumberOfStudents()+1);
         return "pair added successfully";
     }
     public Student getStudentByName(String name) throws NotFoundException{
