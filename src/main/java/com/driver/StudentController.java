@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("students")
-public class StudentController { // come on jineesh ettayiiiiiii
+public class StudentController {
     @Autowired
     StudentService service;
 

@@ -25,20 +25,22 @@ public class StudentRepository {
     }
     public void addTeacher(Teacher teacher){
         teachers.add(teacher);
-        map.put(teacher,new ArrayList<String>());
+
     }
     public List<Teacher> getAllTeachers(){
         return new ArrayList<>(teachers);
     }
     public void addStudentTeacherPair(String student,Teacher teacher){
-        map.get(teacher).add(student);
+        List<String> list = map.getOrDefault(teacher,new ArrayList<>());
+        list.add(student);
+        map.put(teacher,list);
 
     }
     public List<Student> getAllStudents(){
         return new ArrayList<>(students);
     }
     public List<String> getAllStudentsByTeacher(Teacher dir){
-        return new ArrayList<>(map.get(dir));
+        return map.getOrDefault(dir,new ArrayList<>());
     }
     public void deleteTeacher(Teacher dir){
         teachers.remove(dir);
